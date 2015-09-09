@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, Http404
 from django.template import RequestContext, loader
 from .models import Pin
 
@@ -11,5 +11,11 @@ def index(request):
         })
     return HttpResponse(template.render(context))
 
-def detail(request, question_id):
-    return HttpResponse(Pin.objects.filter(id=question_id))
+def detail(request, pin_id):
+    try:
+        pin = Pin.objects.get(id=pin_id)
+    except Pin.DoesNotExist:
+        raise Http404("Pin does not exist")
+    return render(request, 'pins/detail.html', {
+        'pin': pin,
+        })
