@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% if open_pins_list %}
+    <ul>
+    {% for pin in open_pins_list %}
+    <li>
+      <a href="/pins/{{ pin.id }}/">{{ pin.title }}</a>
+      <button type="button" onclick="strike({{ pin.id }})">Done</button>
+    </li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No pins to strike.</p>
+{% endif %}
+{% endblock %}

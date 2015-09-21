@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% load staticfiles %}
+    <script type="text/javascript" src="{% static "js/jquery.js" %}"></script>
+    <script>
+      function strike(id) {
+      //$.getJSON("/pins/" + id + "/done/", function(json) {
+      //alert("Done " + id);})
+      window.location.href = "/pins/" + id + "/done/";
+      }
+    </script>
+</head>
+
+<body>
+
+  <div id="content">
+    {% block content %}{% endblock %}
+  </div>
+
+</body>
+</html>

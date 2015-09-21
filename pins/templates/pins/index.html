@@ -1,9 +1,0 @@
-{% if open_pins_list %}
-    <ul>
-    {% for pin in open_pins_list %}
-        <li><a href="/pins/{{ pin.id }}/">{{ pin.title }}</a></li>
-    {% endfor %}
-    </ul>
-{% else %}
-    <p>No pins to strike.</p>
-{% endif %}

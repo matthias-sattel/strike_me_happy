@@ -1,6 +1,0 @@
-{% if pin %}
-<h1>{{ pin.title }}</h1>
-{{ pin.creation_date }}
-{% else %}
-    <p>No pin selected.</p>
-{% endif %}
