@@ -1,6 +1,11 @@
 {% extends "base.html" %}
 
 {% block content %}
+<form action="/pins/" method="post">
+  {% csrf_token %}
+  {{ form }}
+  <input type="submit" value"Submit" />
+</form>
 {% if open_pins_list %}
     <ul>
     {% for pin in open_pins_list %}
